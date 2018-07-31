@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Mission Impossible
+    link(rel="stylesheet" type="text/css" href="/stylesheets/main.css")
+  body
+    div(id='container')
+
+      label(class='col-lg-2 control-label')
+        a Users &nbsp;&nbsp; | &nbsp;&nbsp;
+        a(href='/makers') Makers
+
+      <img src="/images/mission_movie.png" width=100% height=100%>
+      h2(id='description')
+        span='Ether Balances: ' + fund_balance
+        font(color='gray')  ETH
+
+      h2(id='description')
+
+        span='Token Balances : ' + fund_tamount
+        font(color='gray')  TDs
+
+      button(id='button' onClick="location.href='/users/new'") Join
+
+      div(style=display)
+        h2 My Account
+        p - My Account :   #{user}
+        p - My Ether Balances :   #{user_balance} ETH
+        p - My Token Balances :   #{user_tamount} TDs

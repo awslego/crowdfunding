@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Mission Impossible
+    link(rel="stylesheet" type="text/css" href="/stylesheets/main.css")
+  body
+    div(id='container')
+
+      label(for='name' class='col-lg-2 control-label')
+        a(href='/users') Join
+
+      <img src="/images/taxi_movie.jpg" width=100% height=100%>
+
+      h2 Join C
+
+      form(action='/users/join' method='post')
+
+        label(for='name' class='col-lg-2 control-label') My Account (From)
+        input(type='text' name='user' placeholder='Sender Account')
+
+        label(for='name' class='col-lg-2 control-label') Ether Invest (ETH)
+        input(type='text' name='famount' placeholder='Amount (ETH)')
+
+        label(for='name' class='col-lg-2 control-label') Passphrase
+        input(type='text' name='passphase' placeholder='passphase')
+
+        button(id='button' onClick="loader.style.display='block';submit();") Send
+
+        div(id='loader' style='display:none;')
+          <img src='/images/ring-spinner.gif'>

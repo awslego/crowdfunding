@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Mission Impossible file upload
+    link(rel="stylesheet" type="text/css" href="/stylesheets/main.css")
+    script(src="https://wzrd.in/standalone/buffer")
+    script(src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB" crossorigin="anonymous")
+  script(type="text/javascript").
+    function upload() {
+
+      const reader = new FileReader();
+
+      reader.onloadend = function() {
+        const ipfs = window.IpfsApi('localhost', 5001) // Connect to IPFS
+        const buf = buffer.Buffer(reader.result) // Convert data into buffer
+
+        ipfs.files.add(buf, function(err, result) {
+          if (err) {
+            console.log(err);
+          }
+          else {
+            console.log(result);
+
+            let url = `https://ipfs.io/ipfs/${result[0].hash}`
+            console.log(url)
+
+            document.getElementById("url").innerHTML = url
+            document.getElementById("url").href = url
+            document.getElementById("output").src = url
+          }
+        });
+      }
+
+      const photo = document.getElementById("photo");
+      reader.readAsArrayBuffer(photo.files[0]); // Read Provided File
+    }
+
+  body
+    div(id='container')
+
+      label(for='name' class='col-lg-2 control-label')
+        a(href='/users') Users
+        =" | "
+        a(href='/makers') Makers
+
+      h2 동영상 업로드
+      div(id='description')
+        form(action='javascript:upload();')
+          input(type='file' name='photo' id='photo')
+          button(id='button' onClick="upload();") 업로드
+      br
+      a(id='url')
+      iframe(id='output' width='560', height='315', src='', frameborder='0', allowfullscreen='allowfullscreen')

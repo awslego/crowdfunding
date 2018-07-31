@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Mission Impossible
+    link(rel="stylesheet" type="text/css" href="/stylesheets/main.css")
+  body
+    div(id='container')
+
+      label(for='name' class='col-lg-2 control-label')
+        a(href='/users') Users
+        =" | "
+        a(href='/makers') Makers
+
+      <img src="/images/maker.jpg" width=100% height=100%>
+
+      h2 Withdraw
+
+      form(action='/makers/withdraw' method='post')
+
+        label(for='name' class='col-lg-2 control-label') Withdrawer's Passphrase
+        input(type='text' name='passphase' placeholder='passphase')
+
+        button(id='button' onClick="loader.style.display='block';submit();") Withdraw
+
+        div(id='loader' style='display:none;')
+          <img src='/images/ring-spinner.gif'>
