@@ -461,10 +461,12 @@ exports.fundTransferEvent = function( callback ) {
         if (err)
         {
             console.log(err);
+            console.log("* event trigger - failed  ");
             return callback(err, '');
         } else
         {
             console.log(res);
+            console.log("* event trigger - successful   ");
             return callback(null, res);
         }
     });
