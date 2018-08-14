@@ -66,7 +66,6 @@ router.post('/join', function(req, res, next) {
             return callback(err);
         } else {
             console.log("* event trigger call - ok  ");
-            res.redirect('/users/' + from);
             eth.fundTransferEvent(checkEvent);
         }
     }
