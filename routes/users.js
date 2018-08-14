@@ -53,7 +53,6 @@ router.post('/join', function(req, res, next) {
     function checkUnlock(err, result) {
         if (err) {
             console.log(err);
-            res.send("Error - accountUnlock");
             return callback(err);
         } else {
             eth.sendTransaction(from, constant.crowdFundContractAddress, famount, 2000000, checkTransaction);
@@ -63,7 +62,6 @@ router.post('/join', function(req, res, next) {
     function checkTransaction( err, result) {
         if(err) {
             console.log(err);
-            res.send("Error - sendTransaction");
             return callback(err);
         } else {
             eth.fundTransferEvent(checkEvent);
@@ -73,7 +71,6 @@ router.post('/join', function(req, res, next) {
     function checkEvent(err, result) {
         if(err) {
             console.log(err);
-            res.send("Error - checkEvent");
             return res.send(400);
         } else {
             try {

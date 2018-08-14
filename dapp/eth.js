@@ -455,7 +455,8 @@ exports.safeWithdraw = function(callback) {
 //----------------------------
 exports.fundTransferEvent = function( callback ) {
     //+++++++  STEP 5. Event Watch Exercise ++++++++++++
-    return callback(null,null);
+    //return callback(null,null);
+    console.log("* event trigger   ");
     CrowdFundContract.FundTransfer().watch(function(err, res){
         if (err)
         {
