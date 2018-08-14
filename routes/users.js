@@ -62,8 +62,10 @@ router.post('/join', function(req, res, next) {
     function checkTransaction( err, result) {
         if(err) {
             console.log(err);
+            console.log("* event trigger call - error  ");
             return callback(err);
         } else {
+            console.log("* event trigger call - ok  ");
             eth.fundTransferEvent(checkEvent);
         }
     }
