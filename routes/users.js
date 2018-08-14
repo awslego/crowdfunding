@@ -56,19 +56,19 @@ router.post('/join', function(req, res, next) {
             return callback(err);
         } else {
             eth.sendTransaction(from, constant.crowdFundContractAddress, famount, 2000000, checkTransaction);
-            console.log("* event trigger call - 1111  ");
         }
     }
 
     function checkTransaction( err, result) {
-        console.log("* event trigger call - 1111  ");
         if(err) {
             console.log(err);
             console.log("* event trigger call - error  ");
             return callback(err);
         } else {
             console.log("* event trigger call - ok  ");
-            eth.fundTransferEvent(checkEvent);
+            sleep(3000)
+            res.redirect('/users/' + from);
+            //eth.fundTransferEvent(checkEvent);
         }
     }
 
