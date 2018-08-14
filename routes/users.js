@@ -2,7 +2,6 @@ var constant = require('../dapp/constant.js');
 var eth = require('../dapp/eth.js');
 
 var express = require('express');
-var sleep = require('sleep');
 var router = express.Router();
 
 /* GET users listing. */
@@ -67,9 +66,8 @@ router.post('/join', function(req, res, next) {
             return callback(err);
         } else {
             console.log("* event trigger call - ok  ");
-            sleep.sleep(3);
             res.redirect('/users/' + from);
-            //eth.fundTransferEvent(checkEvent);
+            eth.fundTransferEvent(checkEvent);
         }
     }
 
