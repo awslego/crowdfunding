@@ -24,7 +24,19 @@ html
       button(id='button' onClick="location.href='/users/new'") Join
       br
       div(style=display)
-        h2 My Account
-        p - My Account :   #{user}
-        p - My Ether Balances :   #{user_balance} ETH
+        
+        font(color='red') ▶︎  CrowdFund 참여 결과
+        h2(id='description')
+          font(color='red')  •
+          span=' 참여자 : ' + user
+
+        h2(id='description')
+          font(color='red')  •
+          span=' 보유 금액 : ' + user_balance
+          font(color='gray')  ETH
+
+        h2(id='description')
+          font(color='red')  •
+          span=' 보유 토큰 : ' + user_tamount
+          font(color='gray')  TDs
 
